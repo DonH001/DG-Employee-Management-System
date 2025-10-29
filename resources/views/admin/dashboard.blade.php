@@ -1,7 +1,29 @@
-<x-app-layout>
-    <x-slot name="header">
-        <div class="bg-gradient-to-r from-blue-600 to-blue-800 -mx-6 -mt-6 px-6 pt-6 pb-8 mb-6">
-            <div class="flex justify-between items-center">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    <title>{{ config('app.name', 'DG Computer EMS') }}</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,600&display=swap" rel="stylesheet" />
+    
+    <!-- Scripts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+</head>
+<body class="font-sans antialiased bg-gradient-to-br from-blue-600 to-blue-800 min-h-screen">
+    @include('layouts.navigation')
+    
+    <!-- Full Width Blue Background Dashboard -->
+    <div class="py-8">
+        <!-- Header Section -->
+        <div class="px-6 pb-8">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
                 <div>
                     <h2 class="text-3xl font-bold text-white mb-2">
                         Admin Dashboard
@@ -16,27 +38,27 @@
                 </div>
             </div>
         </div>
-    </x-slot>
-
-    <div class="py-8">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        
+        <!-- Content Section -->
+        <div class="px-6">
+            <div class="max-w-7xl mx-auto">
             <!-- Enhanced Stats Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 stagger-animation">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <!-- Total Employees Card -->
-                <div class="card-interactive float-on-hover interactive-hover p-0 overflow-hidden group cursor-pointer">
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-1 gradient-shift">
+                <div class="card p-0 overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-1">
                         <div class="bg-white p-6 rounded-lg">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-sm font-semibold text-gray-600 uppercase tracking-wide">Total Employees</p>
                                     <p class="text-3xl font-bold text-gray-900 mt-2">{{ $stats['total_employees'] ?? 0 }}</p>
                                     <div class="flex items-center mt-2">
-                                        <span class="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-full pulse-on-hover">
+                                        <span class="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-full">
                                             +{{ $stats['new_hires_this_month'] ?? 0 }} this month
                                         </span>
                                     </div>
                                 </div>
-                                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 rotate-on-hover">
+                                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                     <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
                                     </svg>
@@ -47,25 +69,25 @@
                 </div>
 
                 <!-- Attendance Today Card -->
-                <div class="card-interactive float-on-hover interactive-hover p-0 overflow-hidden group cursor-pointer">
-                    <div class="bg-gradient-to-br from-green-500 to-green-600 p-1 gradient-shift">
+                <div class="card p-0 overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 p-1">
                         <div class="bg-white p-6 rounded-lg">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-sm font-semibold text-gray-600 uppercase tracking-wide">Present Today</p>
                                     <p class="text-3xl font-bold text-gray-900 mt-2">{{ ($stats['present_today'] ?? 0) + ($stats['late_today'] ?? 0) }}</p>
                                     <div class="flex items-center mt-2 space-x-2">
-                                        <span class="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-full scale-on-hover">
+                                        <span class="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-full">
                                             {{ $stats['present_today'] ?? 0 }} On time
                                         </span>
                                         @if(($stats['late_today'] ?? 0) > 0)
-                                            <span class="text-xs font-medium text-yellow-600 bg-yellow-100 px-2 py-1 rounded-full scale-on-hover">
+                                            <span class="text-xs font-medium text-yellow-600 bg-yellow-100 px-2 py-1 rounded-full">
                                                 {{ $stats['late_today'] ?? 0 }} Late
                                             </span>
                                         @endif
                                     </div>
                                 </div>
-                                <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 rotate-on-hover">
+                                <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                     <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
@@ -76,8 +98,8 @@
                 </div>
 
                 <!-- Leave Requests Card -->
-                <div class="card-interactive float-on-hover interactive-hover p-0 overflow-hidden group cursor-pointer">
-                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 p-1 gradient-shift">
+                <div class="card p-0 overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 p-1">
                         <div class="bg-white p-6 rounded-lg">
                             <div class="flex items-center justify-between">
                                 <div>
@@ -175,9 +197,6 @@
                             
                             <div class="mt-6 pt-4 border-t border-gray-200">
                                 <a href="{{ route('admin.employees.index') }}" class="btn btn-secondary w-full">
-                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                                    </svg>
                                     View All Employees
                                 </a>
                             </div>
@@ -240,9 +259,6 @@
                             
                             <div class="mt-4 pt-4 border-t border-gray-200">
                                 <a href="{{ route('admin.attendance.index') }}" class="btn btn-secondary w-full">
-                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                    </svg>
                                     Manage Attendance
                                 </a>
                             </div>
@@ -257,21 +273,12 @@
                         </div>
                         <div class="p-6 space-y-3">
                             <a href="{{ route('admin.employees.create') }}" class="btn btn-primary w-full">
-                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
                                 Add New Employee
                             </a>
                             <a href="{{ route('admin.leave-requests.index') }}" class="btn btn-secondary w-full">
-                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
                                 Review Leave Requests
                             </a>
                             <a href="{{ route('admin.reports.index') }}" class="btn btn-secondary w-full">
-                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
                                 Generate Reports
                             </a>
                         </div>
@@ -280,4 +287,5 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</body>
+</html>
