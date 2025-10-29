@@ -5,12 +5,12 @@
             <div class="flex items-center space-x-8">
                 <!-- Enhanced Logo -->
                 <div class="shrink-0">
-                    <a href="{{ route('admin.dashboard') }}" class="flex items-center group transition-all duration-200">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-200">
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center group transition-all duration-200 hover:scale-105">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md group-hover:shadow-xl group-hover:from-blue-600 group-hover:to-blue-700 transition-all duration-200">
                         </div>
                         <div class="ml-3 hidden sm:block">
-                            <div class="text-lg font-bold text-gray-900">DG Computer</div>
-                            <div class="text-xs text-blue-600 font-medium -mt-1">EMS</div>
+                            <div class="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">DG Computer</div>
+                            <div class="text-xs text-blue-600 font-medium -mt-1 group-hover:text-blue-700 transition-colors duration-200">EMS</div>
                         </div>
                     </a>
                 </div>
@@ -56,13 +56,13 @@
 
                     <x-dropdown align="right" width="56">
                         <x-slot name="trigger">
-                            <button class="flex items-center px-4 py-2 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all duration-200 hover:shadow-md group">
-                                <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm mr-3">
+                            <button class="flex items-center px-4 py-2 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-200 hover:shadow-lg hover:scale-102 group">
+                                <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm mr-3 group-hover:from-blue-600 group-hover:to-blue-700 group-hover:shadow-md transition-all duration-200">
                                     {{ strtoupper(substr(Auth::user()->name, 0, 2)) }}
                                 </div>
                                 <div class="text-left">
-                                    <div class="text-sm font-semibold text-gray-900">{{ Auth::user()->name }}</div>
-                                    <div class="text-xs text-gray-500">
+                                    <div class="text-sm font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{{ Auth::user()->name }}</div>
+                                    <div class="text-xs text-gray-500 group-hover:text-blue-600 transition-colors duration-200">
                                         @if(auth()->user()->canManageEmployees())
                                             Administrator
                                         @elseif(auth()->user()->isEmployee())

@@ -304,10 +304,11 @@ body {
 }
 
 .nav-link:hover {
-    background-color: var(--gray-100);
-    color: var(--gray-900);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
+    background: linear-gradient(135deg, var(--gray-50), var(--gray-100));
+    color: var(--primary-700);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--primary-200);
 }
 
 .nav-link.active {
@@ -362,10 +363,11 @@ body {
 }
 
 .nav-link-compact:hover {
-    background-color: var(--gray-100);
-    color: var(--gray-900);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
+    background: linear-gradient(135deg, var(--gray-50), var(--gray-100));
+    color: var(--primary-700);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--primary-200);
 }
 
 .nav-link-compact.active {
@@ -718,6 +720,40 @@ body {
         min-height: 44px;
         min-width: 44px;
     }
+}
+
+/* Enhanced Hover Utilities */
+.hover\:scale-102:hover {
+    transform: scale(1.02);
+}
+
+.hover\:scale-105:hover {
+    transform: scale(1.05);
+}
+
+/* Additional Professional Hover Effects */
+.group:hover .group-hover\:from-blue-600 {
+    background-image: linear-gradient(to bottom right, var(--primary-600), var(--primary-700));
+}
+
+.group:hover .group-hover\:to-blue-700 {
+    background-image: linear-gradient(to bottom right, var(--primary-600), var(--primary-700));
+}
+
+.group-hover\:text-blue-600 {
+    transition: color 0.2s ease-in-out;
+}
+
+.group:hover .group-hover\:text-blue-600 {
+    color: var(--primary-600);
+}
+
+.group-hover\:text-blue-700 {
+    transition: color 0.2s ease-in-out;
+}
+
+.group:hover .group-hover\:text-blue-700 {
+    color: var(--primary-700);
 }
 
 /* Professional Print Styles */
