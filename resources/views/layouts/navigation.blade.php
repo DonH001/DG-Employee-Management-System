@@ -22,29 +22,29 @@
                 <div class="hidden md:flex md:space-x-2">
                     @auth
                         @if(auth()->user()->canManageEmployees())
-                            <a href="{{ route('admin.dashboard') }}" class="nav-link-compact {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+                            <a href="{{ route('admin.dashboard') }}" class="nav-link-compact {{ request()->routeIs('admin.dashboard') ? 'active' : '' }} px-3 py-2 mx-1 rounded-lg font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 transition-all duration-200 hover:shadow-md hover:scale-105">
                                 Dashboard
                             </a>
-                            <a href="{{ route('admin.employees.index') }}" class="nav-link-compact {{ request()->routeIs('admin.employees.*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.employees.index') }}" class="nav-link-compact {{ request()->routeIs('admin.employees.*') ? 'active' : '' }} px-3 py-2 mx-1 rounded-lg font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 transition-all duration-200 hover:shadow-md hover:scale-105">
                                 Employees
                             </a>
-                            <a href="{{ route('admin.attendance.index') }}" class="nav-link-compact {{ request()->routeIs('admin.attendance.*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.attendance.index') }}" class="nav-link-compact {{ request()->routeIs('admin.attendance.*') ? 'active' : '' }} px-3 py-2 mx-1 rounded-lg font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 transition-all duration-200 hover:shadow-md hover:scale-105">
                                 Attendance
                             </a>
-                            <a href="{{ route('admin.leave-requests.index') }}" class="nav-link-compact {{ request()->routeIs('admin.leave-requests.*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.leave-requests.index') }}" class="nav-link-compact {{ request()->routeIs('admin.leave-requests.*') ? 'active' : '' }} px-3 py-2 mx-1 rounded-lg font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 transition-all duration-200 hover:shadow-md hover:scale-105">
                                 Leave Requests
                             </a>
-                            <a href="{{ route('admin.reports.index') }}" class="nav-link-compact {{ request()->routeIs('admin.reports.*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.reports.index') }}" class="nav-link-compact {{ request()->routeIs('admin.reports.*') ? 'active' : '' }} px-3 py-2 mx-1 rounded-lg font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 transition-all duration-200 hover:shadow-md hover:scale-105">
                                 Reports
                             </a>
                         @elseif(auth()->user()->isEmployee())
-                            <a href="{{ route('employee.dashboard') }}" class="nav-link {{ request()->routeIs('employee.dashboard') ? 'active' : '' }}">
+                            <a href="{{ route('employee.dashboard') }}" class="nav-link {{ request()->routeIs('employee.dashboard') ? 'active' : '' }} px-4 py-2 mx-1 rounded-lg font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 transition-all duration-200 hover:shadow-md">
                                 Dashboard
                             </a>
-                            <a href="{{ route('employee.attendance.index') }}" class="nav-link {{ request()->routeIs('employee.attendance.*') ? 'active' : '' }}">
+                            <a href="{{ route('employee.attendance.index') }}" class="nav-link {{ request()->routeIs('employee.attendance.*') ? 'active' : '' }} px-4 py-2 mx-1 rounded-lg font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 transition-all duration-200 hover:shadow-md">
                                 My Attendance
                             </a>
-                            <a href="{{ route('employee.leave-requests.index') }}" class="nav-link {{ request()->routeIs('employee.leave-requests.*') ? 'active' : '' }}">
+                            <a href="{{ route('employee.leave-requests.index') }}" class="nav-link {{ request()->routeIs('employee.leave-requests.*') ? 'active' : '' }} px-4 py-2 mx-1 rounded-lg font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 transition-all duration-200 hover:shadow-md">
                                 Leave Requests
                             </a>
                         @endif

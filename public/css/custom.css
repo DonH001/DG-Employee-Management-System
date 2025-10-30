@@ -293,29 +293,35 @@ body {
     align-items: center;
     padding: 0.75rem 1.25rem;
     font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--gray-600);
-    text-decoration: none;
-    border-radius: var(--radius-lg);
-    transition: all 0.2s ease-in-out;
-    margin: 0 0.125rem;
+    font-weight: 600;
+    color: #4B5563 !important;
+    text-decoration: none !important;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease-in-out;
+    margin: 0 0.25rem;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, rgba(249, 250, 251, 0.9), rgba(243, 244, 246, 0.8));
+    border: 1px solid rgba(229, 231, 235, 0.6);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
 }
 
 .nav-link:hover {
-    background: linear-gradient(135deg, var(--gray-50), var(--gray-100));
-    color: var(--primary-700);
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--primary-200);
+    background: linear-gradient(135deg, #DBEAFE, #BFDBFE) !important;
+    color: #1D4ED8 !important;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+    border: 1px solid #93C5FD;
 }
 
 .nav-link.active {
-    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
-    color: white;
-    font-weight: 600;
-    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+    color: white !important;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+    border: 1px solid #1D4ED8;
+    transform: translateY(-1px);
 }
 
 .nav-link.active::before {
@@ -349,32 +355,38 @@ body {
 .nav-link-compact {
     display: flex;
     align-items: center;
-    padding: 0.5rem 0.875rem;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: var(--gray-600);
-    text-decoration: none;
-    border-radius: var(--radius-md);
-    transition: all 0.2s ease-in-out;
-    margin: 0 0.0625rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4B5563 !important;
+    text-decoration: none !important;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease-in-out;
+    margin: 0 0.25rem;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
+    background: linear-gradient(135deg, rgba(249, 250, 251, 0.9), rgba(243, 244, 246, 0.8));
+    border: 1px solid rgba(229, 231, 235, 0.6);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
 }
 
 .nav-link-compact:hover {
-    background: linear-gradient(135deg, var(--gray-50), var(--gray-100));
-    color: var(--primary-700);
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--primary-200);
+    background: linear-gradient(135deg, #DBEAFE, #BFDBFE) !important;
+    color: #1D4ED8 !important;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+    border: 1px solid #93C5FD;
 }
 
 .nav-link-compact.active {
-    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
-    color: white;
-    font-weight: 600;
-    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+    color: white !important;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+    border: 1px solid #1D4ED8;
+    transform: translateY(-1px);
 }
 
 .nav-link-compact.active::before {
@@ -514,6 +526,30 @@ body {
 }
 
 /* Professional Responsive Tables */
+
+/* Navigation Link Overrides - Ensure styling is applied */
+nav a.nav-link,
+nav a.nav-link-compact {
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    font-weight: 600 !important;
+}
+
+nav a.nav-link:hover,
+nav a.nav-link-compact:hover {
+    text-decoration: none !important;
+}
+
+/* Additional Professional Styling */
+.nav-link-compact,
+.nav-link {
+    min-height: 44px;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
     .table {
         font-size: 0.875rem;

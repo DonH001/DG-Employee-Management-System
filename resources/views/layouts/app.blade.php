@@ -23,6 +23,21 @@
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         
+        <!-- Enhanced Navigation Styling -->
+        <style>
+            .nav-link.active, .nav-link-compact.active {
+                background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+                color: white !important;
+                font-weight: 700 !important;
+                box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4) !important;
+            }
+            
+            .nav-link:hover, .nav-link-compact:hover {
+                transform: translateY(-2px) scale(1.05) !important;
+                box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15) !important;
+            }
+        </style>
+        
         <!-- Additional performance hints -->
         <link rel="prefetch" href="{{ route('dashboard') }}">
     </head>
